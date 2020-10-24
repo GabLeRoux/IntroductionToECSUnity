@@ -35,7 +35,6 @@ using UnityEngine;
 /// <summary>
 ///  Simple controller class for managing the player movement, input and shooting
 /// </summary>
-
 [RequireComponent(typeof(PlayerMover), typeof(PlayerInput), typeof(PlayerWeapon))]
 public class PlayerManager : MonoBehaviour
 {
@@ -63,7 +62,6 @@ public class PlayerManager : MonoBehaviour
         }
 
         playerWeapon.IsFireButtonDown = playerInput.IsFiring;
-
     }
 
     private void FixedUpdate()
@@ -94,5 +92,4 @@ public class PlayerManager : MonoBehaviour
             go.SetActive(state);
         }
     }
-
 }

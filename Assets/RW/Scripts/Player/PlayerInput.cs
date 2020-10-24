@@ -55,6 +55,4 @@ public class PlayerInput : MonoBehaviour
 
         return cameraRight * inputDirection.x + cameraForward * inputDirection.z;
     }
-
-
 }

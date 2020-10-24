@@ -30,7 +30,6 @@
 
 using UnityEngine;
 using Unity.Mathematics;
-
 using Random = UnityEngine.Random;
 
 
@@ -41,7 +40,8 @@ public class EnemySpawnerNonECS : MonoBehaviour
 {
     [Header("Spawner")]
     // number of enemies generated per interval
-    [SerializeField] private int spawnCount = 30;
+    [SerializeField]
+    private int spawnCount = 30;
 
     // time between spawns
     [SerializeField] private float spawnInterval = 3f;
@@ -54,7 +54,9 @@ public class EnemySpawnerNonECS : MonoBehaviour
 
     [Header("Enemy")]
     // random speed range
-    [SerializeField] float minSpeed = 4f;
+    [SerializeField]
+    float minSpeed = 4f;
+
     [SerializeField] float maxSpeed = 12f;
     [SerializeField] GameObject enemyPrefabNonECS;
 
@@ -75,14 +77,12 @@ public class EnemySpawnerNonECS : MonoBehaviour
         Vector2 randomPoint = Random.insideUnitCircle.normalized * radius;
 
         // return random point on circle, centered around the player position
-        return new float3(randomPoint.x, 0.5f, randomPoint.y) + (float3)GameManagerNonECS.GetPlayerPosition();
+        return new float3(randomPoint.x, 0.5f, randomPoint.y) + (float3) GameManagerNonECS.GetPlayerPosition();
     }
 
     // spawn one wave of enemies surrounding the player, increasing the count each wave
     private void SpawnWave()
     {
-
-
         for (int i = 0; i < spawnCount; i++)
         {
             if (enemyPrefabNonECS != null)
@@ -94,6 +94,7 @@ public class EnemySpawnerNonECS : MonoBehaviour
                 enemyNonECS.SetMoveSpeed(Random.Range(minSpeed, maxSpeed));
             }
         }
+
         spawnCount += difficultyBonus;
     }
 

@@ -19,7 +19,7 @@ public class FacePlayerSystem : ComponentSystem
         }
 
         // 4 get the player's position
-        float3 playerPos = (float3)GameManager.GetPlayerPosition();
+        float3 playerPos = (float3) GameManager.GetPlayerPosition();
 
         // 3 loop through all Entities with EnemyTag, passing in the Entity, Translation and Rotation as input
         Entities.WithAll<EnemyTag>().ForEach((Entity entity, ref Translation trans, ref Rotation rot) =>

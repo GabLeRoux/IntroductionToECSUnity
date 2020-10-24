@@ -34,8 +34,6 @@ using Unity.Entities;
 using Unity.Transforms;
 using Unity.Rendering;
 using Unity.Collections;
-
-
 using Random = UnityEngine.Random;
 
 
@@ -44,10 +42,10 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class EnemySpawner : MonoBehaviour
 {
-
     [Header("Spawner")]
     // number of enemies generated per interval
-    [SerializeField] private int spawnCount = 30;
+    [SerializeField]
+    private int spawnCount = 30;
 
     // time between spawns
     [SerializeField] private float spawnInterval = 3f;
@@ -60,7 +58,9 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Enemy")]
     // random speed range
-    [SerializeField] float minSpeed = 4f;
+    [SerializeField]
+    float minSpeed = 4f;
+
     [SerializeField] float maxSpeed = 12f;
 
     // counter
@@ -110,10 +110,10 @@ public class EnemySpawner : MonoBehaviour
             enemyArray[i] = entityManager.Instantiate(enemyEntityPrefab);
 
             // 3 move the instance to a random point on a circle around the player
-            entityManager.SetComponentData(enemyArray[i], new Translation { Value = RandomPointOnCircle(spawnRadius) });
+            entityManager.SetComponentData(enemyArray[i], new Translation {Value = RandomPointOnCircle(spawnRadius)});
 
             // 4 set a random forward speed
-            entityManager.SetComponentData(enemyArray[i], new MoveForward { speed = Random.Range(minSpeed, maxSpeed) });
+            entityManager.SetComponentData(enemyArray[i], new MoveForward {speed = Random.Range(minSpeed, maxSpeed)});
         }
 
         // 5 remove the temporary NativeArray
@@ -129,7 +129,7 @@ public class EnemySpawner : MonoBehaviour
         Vector2 randomPoint = Random.insideUnitCircle.normalized * radius;
 
         // return random point on circle, centered around the player position
-        return new float3(randomPoint.x, 0.5f, randomPoint.y) + (float3)GameManager.GetPlayerPosition();
+        return new float3(randomPoint.x, 0.5f, randomPoint.y) + (float3) GameManager.GetPlayerPosition();
     }
 
     // signal from GameManager to begin spawning

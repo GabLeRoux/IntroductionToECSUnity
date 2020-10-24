@@ -123,7 +123,6 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PlayGameRoutine()
     {
-
         enemySpawner?.StartSpawn();
 
         while (gameState == GameState.Playing)

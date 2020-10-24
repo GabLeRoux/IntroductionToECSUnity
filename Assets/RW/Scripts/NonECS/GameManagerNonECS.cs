@@ -35,7 +35,6 @@ using UnityEngine.UI;
 using TMPro;
 
 
-
 /// <summary>
 /// Manages the demo game.
 /// </summary>
@@ -107,7 +106,6 @@ public class GameManagerNonECS : MonoBehaviour
 
     private IEnumerator PlayGameRoutine()
     {
-
         enemySpawner?.StartSpawn();
 
         while (gameState == GameState.Playing)
@@ -118,13 +116,13 @@ public class GameManagerNonECS : MonoBehaviour
             {
                 timeText.text = timeElapsed.ToString("0.##");
             }
+
             yield return null;
         }
     }
 
     private IEnumerator EndGameRoutine()
     {
-
         // fade to black and wait
         screenFader?.CrossFadeAlpha(1f, delay, true);
         yield return new WaitForSeconds(delay);

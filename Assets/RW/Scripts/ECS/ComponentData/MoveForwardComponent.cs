@@ -1,4 +1,5 @@
 ﻿using Unity.Entities;
+
 /// <summary>
 /// Component data containing forward speed.
 /// </summary>

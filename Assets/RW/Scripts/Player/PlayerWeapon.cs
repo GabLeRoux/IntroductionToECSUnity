@@ -38,11 +38,11 @@ using Unity.Transforms;
 /// </summary>
 public class PlayerWeapon : MonoBehaviour
 {
-
     [Header("Specs")]
 
     // time between shots
-    [SerializeField] private float rateOfFire = 0.15f;
+    [SerializeField]
+    private float rateOfFire = 0.15f;
 
     // where the weapon's bullet appears
     [SerializeField] private Transform muzzleTransform;
@@ -50,8 +50,8 @@ public class PlayerWeapon : MonoBehaviour
     // GameObject prefab 
     [SerializeField] private GameObject bulletPrefab;
 
-    [Header("Effects")]
-    [SerializeField] private AudioSource soundFXSource;
+    [Header("Effects")] [SerializeField] private AudioSource soundFXSource;
+
     // reference to the current World's EntityManager
     private EntityManager entityManager;
 
@@ -63,7 +63,12 @@ public class PlayerWeapon : MonoBehaviour
 
     // is the fire button held down?
     private bool isFireButtonDown;
-    public bool IsFireButtonDown { get { return isFireButtonDown; } set { isFireButtonDown = value; } }
+
+    public bool IsFireButtonDown
+    {
+        get { return isFireButtonDown; }
+        set { isFireButtonDown = value; }
+    }
 
     protected virtual void Start()
     {
@@ -90,8 +95,8 @@ public class PlayerWeapon : MonoBehaviour
         Entity bullet = entityManager.Instantiate(bulletEntityPrefab);
 
         // set it to the muzzle angle and position
-        entityManager.SetComponentData(bullet, new Translation { Value = muzzleTransform.position });
-        entityManager.SetComponentData(bullet, new Rotation { Value = muzzleTransform.rotation });
+        entityManager.SetComponentData(bullet, new Translation {Value = muzzleTransform.position});
+        entityManager.SetComponentData(bullet, new Rotation {Value = muzzleTransform.rotation});
 
         // plays one-shot sound (pew pew pew!)
         soundFXSource?.Play();

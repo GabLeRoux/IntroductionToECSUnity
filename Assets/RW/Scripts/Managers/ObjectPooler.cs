@@ -32,7 +32,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 // uses a modified version of the ObjectPooler from
 // https://www.raywenderlich.com/847-object-pooling-in-unity
 
@@ -82,13 +81,14 @@ public class ObjectPooler : MonoBehaviour
             {
                 if (item.shouldExpand)
                 {
-                    GameObject obj = (GameObject)Instantiate(item.objectToPool);
+                    GameObject obj = (GameObject) Instantiate(item.objectToPool);
                     obj.SetActive(false);
                     pooledObjects.Add(obj);
                     return obj;
                 }
             }
         }
+
         return null;
     }
 }

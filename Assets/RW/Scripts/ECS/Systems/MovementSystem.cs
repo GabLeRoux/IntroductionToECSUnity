@@ -13,11 +13,12 @@ public class MovementSystem : ComponentSystem
     protected override void OnUpdate()
     {
         // 3 loop through all Entities with MoveForward component; pass in Translation/Rotation/MoveForward components as input parameters
-        Entities.WithAll<MoveForward>().ForEach((ref Translation trans, ref Rotation rot, ref MoveForward moveForward) =>
-        {
-            // 4 calculate how much to move each frame in the local positive z and increment the position
-            trans.Value += moveForward.speed * Time.DeltaTime * math.forward(rot.Value);
-        });
+        Entities.WithAll<MoveForward>().ForEach(
+            (ref Translation trans, ref Rotation rot, ref MoveForward moveForward) =>
+            {
+                // 4 calculate how much to move each frame in the local positive z and increment the position
+                trans.Value += moveForward.speed * Time.DeltaTime * math.forward(rot.Value);
+            });
     }
 }
 

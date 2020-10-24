@@ -53,7 +53,7 @@ namespace DroneSwarm
                 Entities.WithAll<EnemyTag>().WithNone<Lifetime>().ForEach((Entity enemy) =>
                 {
                     // add the Lifetime component to time out Entity automatically
-                    entityManager.AddComponentData(enemy, new Lifetime { Value = endLifetime });
+                    entityManager.AddComponentData(enemy, new Lifetime {Value = endLifetime});
                 });
             }
         }

@@ -1,6 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.Transforms;
 using Unity.Mathematics;
+
 /// <summary>
 /// System for destroying Enemy Entities and the Player
 /// </summary>
@@ -18,13 +19,12 @@ public class DestructionSystem : ComponentSystem
         }
 
         // 3 use the static method to store the player's position
-        float3 playerPosition = (float3)GameManager.GetPlayerPosition();
+        float3 playerPosition = (float3) GameManager.GetPlayerPosition();
 
         // 4 loop through all Entities with the EnemyTag, passing in the enemy and Translation component
         // note: the ref keyword is not used for the Entity input parameter
         Entities.WithAll<EnemyTag>().ForEach((Entity enemy, ref Translation enemyPos) =>
         {
-
             // 5 discard the player's y value; only check the xz-plane
             playerPosition.y = enemyPos.Value.y;
 

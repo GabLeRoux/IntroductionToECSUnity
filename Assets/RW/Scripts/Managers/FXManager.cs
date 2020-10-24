@@ -45,7 +45,8 @@ public class FXManager : ObjectPooler
     [Space]
 
     // explosion to pool
-    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField]
+    private GameObject explosionPrefab;
 
     // tag is used to find object in pool
     [SerializeField] private string explosionTag = "Explosion";
@@ -95,6 +96,5 @@ public class FXManager : ObjectPooler
             instance.transform.position = pos;
             instance.SetActive(true);
         }
-
     }
 }

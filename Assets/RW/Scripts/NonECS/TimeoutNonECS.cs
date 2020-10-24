@@ -45,5 +45,4 @@ public class TimeoutNonECS : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-
 }

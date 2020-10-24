@@ -46,7 +46,6 @@ public class TimeoutSystem : ComponentSystem
             {
                 PostUpdateCommands.DestroyEntity(entity);
             }
-
         });
     }
 }

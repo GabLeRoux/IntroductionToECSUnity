@@ -56,7 +56,6 @@ public class EnemyNonECS : MonoBehaviour
             FacePlayer();
             CheckPlayerCollision();
             CheckBulletCollisions();
-
         }
     }
 
@@ -118,4 +117,3 @@ public class EnemyNonECS : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
     }
 }
-
